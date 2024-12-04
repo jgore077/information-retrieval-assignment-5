@@ -1,4 +1,5 @@
 __pycache__
 models/
+embeddings/
 .vscode
 Assignment 5.pdf

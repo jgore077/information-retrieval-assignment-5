@@ -1,4 +1,5 @@
 from SentenceTransformersWrapper import Wrapper
+from tqdm import tqdm
 from ranx import Run
 import shutil
 import json
@@ -21,12 +22,17 @@ with open(topics_path,encoding="utf-8") as topics_file:
     
 for model in models:
     results={}
+    output_file=RESULTS_PATH+model+"_"+topics_path.split('.')[0].split("_")[1]+".tsv"
+    # Skip if we have already computed the results
+    if os.path.exists(output_file):
+        continue
     wrapper=Wrapper(answers_path,model)
     
-    for topic in topics:
+   
+    for topic in tqdm(topics,desc=f"Computing results for {model}"):
         results[topic["Id"]]=wrapper.search(topic["Title"]+" "+topic["Body"])
     
-    output_file=RESULTS_PATH+model+topics_file.split('.')[0].split("_")[1]+".tsv"
+   
     tmp_out_path=output_file+".trec"
 
     Run(results,name=model).save(tmp_out_path)
