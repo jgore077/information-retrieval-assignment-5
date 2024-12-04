@@ -1,4 +1,4 @@
-from SentenceTransformersWrapper import Wrapper
+from SentenceTransformersWrapper import Wrapper,title_body_query
 from tqdm import tqdm
 from ranx import Run
 import shutil
@@ -30,7 +30,7 @@ for model in models:
     
    
     for topic in tqdm(topics,desc=f"Computing results for {model}"):
-        results[topic["Id"]]=wrapper.search(topic["Title"]+" "+topic["Body"])
+        results[topic["Id"]]=wrapper.search(title_body_query)
     
    
     tmp_out_path=output_file+".trec"

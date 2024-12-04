@@ -9,15 +9,18 @@ import re
 import os
 
 
-
-
-def cosine_sim(a,b):
-    return dot(a, b)/(norm(a)*norm(b))
-
  
 def remove_html_tags(text): 
     clean = re.compile('<.*?>') 
     return re.sub(clean, '', text) 
+
+def title_body_query(topic:dict)->str:
+    return topic["Title"]+" "+remove_html_tags(topic["Body"])
+    
+def cosine_sim(a,b):
+    return dot(a, b)/(norm(a)*norm(b))
+
+
 
  
 class Wrapper():
