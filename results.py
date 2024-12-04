@@ -30,7 +30,7 @@ for model in models:
     
    
     for topic in tqdm(topics,desc=f"Computing results for {model}"):
-        results[topic["Id"]]=wrapper.search(title_body_query)
+        results[topic["Id"]]=wrapper.search(title_body_query(topic))
     
    
     tmp_out_path=output_file+".trec"
