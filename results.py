@@ -1,4 +1,5 @@
 from SentenceTransformersWrapper import Wrapper
+from ranx import Run
 import shutil
 import json
 import sys
@@ -25,5 +26,11 @@ for model in models:
     for topic in topics:
         results[topic["Id"]]=wrapper.search(topic["Title"]+" "+topic["Body"])
     
+    output_file=RESULTS_PATH+model+topics_file.split('.')[0].split("_")[1]+".tsv"
+    tmp_out_path=output_file+".trec"
+
+    Run(results,name=model).save(tmp_out_path)
+
+    os.rename(tmp_out_path,output_file)
     # Delete model files to save space (Sentence Transformers take a lot of space)
     shutil.rmtree(wrapper.cache_dir)
