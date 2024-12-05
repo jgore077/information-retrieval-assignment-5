@@ -30,7 +30,7 @@ It will then print the P@10 sorted in descending order for every result file in 
 
 ## `rerank.py`
 
-This script was used to re-rank bi-encoder results with a cross-encoder. The results are actually worse so this was a failed experiment.
+This script was used to re-rank the `all-mpnet-base-v2` results with the `ms-marco-MiniLM-L-12-v2` cross-encoder. The re-ranked results are actually worse so this was a failed experiment.
 ```
 ------------------------------------------
 Model Name                        |   P@10
