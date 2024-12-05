@@ -9,20 +9,30 @@ import os
 answers_path=sys.argv[1]
 topics_path=sys.argv[2]
 
+models=None
+output_file=None
+
+try:
+    models=[sys.argv[3]]
+    output_file=sys.argv[4]
+    print(models)
+except:
+    with open("models.txt",encoding="utf-8") as model_file:
+        models=[model.strip() for model in model_file.readlines()]
 
 
 RESULTS_PATH="results/"
 os.makedirs(RESULTS_PATH,exist_ok=True)
 
-with open("models.txt",encoding="utf-8") as model_file:
-    models=[model.strip() for model in model_file.readlines()]
+
     
 with open(topics_path,encoding="utf-8") as topics_file:
     topics=json.load(topics_file)
     
 for model in models:
     results={}
-    output_file=RESULTS_PATH+model+"_"+topics_path.split('.')[0].split("_")[1]+".tsv"
+    if not output_file:
+        output_file=RESULTS_PATH+model+"_"+topics_path.split('.')[0].split("_")[1]+".tsv"
     wrapper=Wrapper(answers_path,model)
     
    
