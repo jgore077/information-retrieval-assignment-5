@@ -1,5 +1,5 @@
 # Information Retrieval Assignment 5
-This is my code for assignment 5, I decided to use a bi-encoder because they are the best models we have seen in the course. I specifically used the `all-mpnet-base-v2` bi-encoder because it's at the top of the [leadboard](https://sbert.net/docs/sentence_transformer/pretrained_models.html#original-models).
+This is my code for assignment 5, I decided to use a bi-encoder because they are the best models we have seen in the course. I specifically used the `all-mpnet-base-v2` bi-encoder because it's at the top of the [leaderboard](https://sbert.net/docs/sentence_transformer/pretrained_models.html#original-models).
 
 # Installation
 Install the python packages.
