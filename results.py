@@ -23,9 +23,6 @@ with open(topics_path,encoding="utf-8") as topics_file:
 for model in models:
     results={}
     output_file=RESULTS_PATH+model+"_"+topics_path.split('.')[0].split("_")[1]+".tsv"
-    # Skip if we have already computed the results
-    if os.path.exists(output_file):
-        continue
     wrapper=Wrapper(answers_path,model)
     
    
