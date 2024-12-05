@@ -12,7 +12,7 @@ def process_answers(answers:dict)->dict:
     return new_answers
 
 class CrossEncoderWrapper():
-    def __init__(self,answers_path,model_name="cross-encoder/   ") -> None:
+    def __init__(self,answers_path,model_name="cross-encoder/ms-marco-MiniLM-L-12-v2") -> None:
         self.model_name=model_name
         self.answers_path=answers_path
         self.model=CrossEncoder(model_name,default_activation_function=torch.nn.Sigmoid())
