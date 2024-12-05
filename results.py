@@ -15,7 +15,6 @@ output_file=None
 try:
     models=[sys.argv[3]]
     output_file=sys.argv[4]
-    print(models)
 except:
     with open("models.txt",encoding="utf-8") as model_file:
         models=[model.strip() for model in model_file.readlines()]
